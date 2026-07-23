@@ -30,7 +30,7 @@ dev = [
   "ruff>=0.11,<1",
 ]
 neural = [
-  "sentence-transformers>=3.4,<4",
+  "sentence-transformers>=3.4,<6",
   "torch>=2.5,<3",
 ]
 
