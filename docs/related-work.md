@@ -1,6 +1,8 @@
 # Related work and design synthesis
 
-This design was informed by the supplied manuscripts, but no source implementation was copied.
+EvidRoute is an original implementation inspired by research directions in the four
+manuscripts below. It is not an official reproduction, and no source implementation, private
+data, or reported experimental result from those works was copied into this repository.
 
 - Moskvoretskii et al., *Adaptive Retrieval without Self-Knowledge? Bringing Uncertainty Back
   Home* (ACL 2025), motivates explicit comparison between adaptive retrieval and uncertainty
