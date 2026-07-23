@@ -1,5 +1,7 @@
 # EvidRoute
 
+[![CI](https://github.com/pxnkit/evidroute/actions/workflows/ci.yml/badge.svg)](https://github.com/pxnkit/evidroute/actions/workflows/ci.yml)
+
 **Risk-constrained sequential routing over heterogeneous evidence and interaction sources.**
 
 EvidRoute is an offline-first research system that decides which evidence route to use next
@@ -30,6 +32,15 @@ and source-shift simulation on the bundled MiniRoute benchmark.
 
 ## Quick start
 
+### Docker Compose
+
+```bash
+docker compose up --build
+```
+
+Open the research console at `http://localhost:8080` and the API documentation at
+`http://localhost:8000/docs`.
+
 ### Windows PowerShell
 
 ```powershell
@@ -48,7 +59,7 @@ make smoke
 make demo
 ```
 
-The API runs at `http://localhost:8000` and the web application at
+The developer scripts run the API at `http://localhost:8000` and the web application at
 `http://localhost:5173`.
 
 ## Reproduce MiniRoute
