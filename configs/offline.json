@@ -1,0 +1,19 @@
+{
+  "mode": "offline",
+  "default_snapshot": "t1",
+  "max_query_chars": 4000,
+  "evidence_limit": 4,
+  "max_route_calls": 3,
+  "default_risk_target": 0.25,
+  "confidence_level": 0.95,
+  "minimum_stratum_size": 20,
+  "drift_threshold": 0.2,
+  "utility": {
+    "supported_quality": 1.0,
+    "action_success": 0.35,
+    "cost": 0.15,
+    "latency": 0.08,
+    "clarification": 0.18,
+    "contradiction": 0.45
+  }
+}

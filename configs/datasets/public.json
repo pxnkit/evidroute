@@ -1,0 +1,24 @@
+{
+  "datasets": [
+    {
+      "id": "hotpotqa",
+      "homepage": "https://hotpotqa.github.io/",
+      "expected_path": "data/downloads/hotpotqa/dev.json",
+      "included": false
+    },
+    {
+      "id": "musique",
+      "homepage": "https://github.com/StonyBrookNLP/musique",
+      "expected_path": "data/downloads/musique/dev.json",
+      "included": false
+    },
+    {
+      "id": "2wikimultihopqa",
+      "homepage": "https://github.com/Alab-NII/2wikimultihop",
+      "expected_path": "data/downloads/2wikimultihopqa/dev.json",
+      "included": false
+    }
+  ],
+  "license_acknowledgement_required": true,
+  "automatic_download": false
+}

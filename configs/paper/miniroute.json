@@ -1,0 +1,27 @@
+{
+  "experiment_id": "miniroute-smoke-v1",
+  "status": "executed_smoke_only",
+  "seed": 17,
+  "splits": ["train", "calibration", "test", "shifted_test"],
+  "policies": [
+    "fixed_route",
+    "transparent_sequential",
+    "potential_outcome_hgb",
+    "counterfactual_oracle"
+  ],
+  "metrics": [
+    "exact_match",
+    "token_f1",
+    "supported_accuracy",
+    "citation_precision",
+    "citation_recall",
+    "monetary_cost",
+    "latency_ms",
+    "abstention_rate",
+    "route_regret",
+    "risk_coverage"
+  ],
+  "bootstrap_replicates": 1000,
+  "confidence": 0.95,
+  "public_benchmark_claims": false
+}

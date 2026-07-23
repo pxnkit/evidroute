@@ -1,0 +1,58 @@
+{
+  "schema_versions": {
+    "t0": "1.0",
+    "t1": "2.0"
+  },
+  "edges": [
+    {
+      "edge_id": "edge_atlas_founder",
+      "subject": "Project Atlas",
+      "relation": "founded_by",
+      "object": "Meridian Institute",
+      "snapshot_ids": ["t0", "t1"],
+      "answer": "Meridian Institute",
+      "source_document_id": "doc_project",
+      "schema_version": "1.0"
+    },
+    {
+      "edge_id": "edge_meridian_director",
+      "subject": "Meridian Institute",
+      "relation": "directed_by",
+      "object": "Dr. Imani Vale",
+      "snapshot_ids": ["t0", "t1"],
+      "answer": "Dr. Imani Vale",
+      "source_document_id": "doc_director",
+      "schema_version": "1.0"
+    },
+    {
+      "edge_id": "edge_c19_requires",
+      "subject": "valve C-19",
+      "relation": "requires_before_open",
+      "object": "isolate the primary feed and verify zero pressure",
+      "snapshot_ids": ["t0", "t1"],
+      "answer": "isolate the primary feed and verify zero pressure",
+      "source_document_id": "doc_high_value",
+      "schema_version": "1.0"
+    },
+    {
+      "edge_id": "edge_nyx_v1",
+      "subject": "Nyx",
+      "relation": "vessel_code",
+      "object": "NX-44",
+      "snapshot_ids": ["t0"],
+      "answer": "NX-44",
+      "source_document_id": "doc_schema_t0",
+      "schema_version": "1.0"
+    },
+    {
+      "edge_id": "edge_nyx_v2",
+      "subject": "Nyx",
+      "relation": "asset_id",
+      "object": "NX-44",
+      "snapshot_ids": ["t1"],
+      "answer": "NX-44",
+      "source_document_id": "doc_schema_t1",
+      "schema_version": "2.0"
+    }
+  ]
+}

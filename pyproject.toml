@@ -1,0 +1,75 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "evidroute"
+version = "0.1.0"
+description = "Risk-constrained sequential routing over heterogeneous evidence and interaction sources"
+readme = "README.md"
+requires-python = ">=3.12,<3.14"
+license = { text = "MIT" }
+authors = [{ name = "Pankit Brahmkhatri" }]
+dependencies = [
+  "fastapi>=0.116,<1",
+  "httpx>=0.28,<1",
+  "numpy>=2.1,<3",
+  "pydantic>=2.10,<3",
+  "python-multipart>=0.0.20,<1",
+  "scikit-learn>=1.6,<2",
+  "scipy>=1.15,<2",
+  "uvicorn[standard]>=0.34,<1",
+]
+
+[project.optional-dependencies]
+dev = [
+  "mypy>=1.15,<2",
+  "pytest>=8.3,<9",
+  "pytest-asyncio>=0.25,<1",
+  "pytest-cov>=6,<7",
+  "ruff>=0.11,<1",
+]
+neural = [
+  "sentence-transformers>=3.4,<4",
+  "torch>=2.5,<3",
+]
+
+[project.scripts]
+evidroute = "evidroute.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/evidroute"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+plugins = ["pydantic.mypy"]
+packages = ["evidroute"]
+
+[[tool.mypy.overrides]]
+module = ["sklearn", "sklearn.*"]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+addopts = "-q --strict-markers --disable-warnings"
+testpaths = ["tests"]
+markers = [
+  "integration: integration tests",
+  "failure_injection: deterministic failure tests",
+]
+
+[tool.coverage.run]
+source = ["evidroute"]
+branch = true
+
+[tool.coverage.report]
+fail_under = 75
+show_missing = true

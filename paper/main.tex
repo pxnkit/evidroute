@@ -1,0 +1,84 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{amsmath}
+
+\title{EvidRoute: Risk-Constrained Sequential Routing over\\
+Heterogeneous Evidence and Interaction Sources}
+\author{Pankit Brahmkhatri\\Independent Researcher}
+\date{Engineering prototype --- public benchmark experiments unrun}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Retrieval-augmented systems commonly decide whether to search, but operational agents may
+choose among parametric knowledge, memory, lexical and dense indices, structured sources,
+frozen or live web evidence, clarification, and abstention. We present EvidRoute, an
+offline-first testbed that formulates this choice as bounded sequential evidence acquisition
+under cost, latency, privacy, and selective-risk constraints. The current release implements
+typed routes, forced-route potential outcomes, a transparent sequential policy, a CPU learned
+router, exact provenance, deterministic shifts, and replayable traces. Results in this artifact
+are limited to the synthetic MiniRoute smoke benchmark; external benchmark evaluation remains
+future work.
+\end{abstract}
+
+\section{Introduction}
+Adaptive retrieval can reduce unnecessary search, but uncertainty about when to retrieve does
+not resolve which source to use or when to ask the user. Prior work studies uncertainty-aware
+retrieval \cite{moskvoretskii2025adaptive,wu2025search}, information-foraging policies
+\cite{qian2025scent}, and knowledge-grounded conversational agents
+\cite{shi2026tauknowledge}. EvidRoute isolates heterogeneous route selection as the experimental
+object.
+
+\section{Problem}
+At step $t$, a policy observes query features, remaining budget $b_t$, source-health state, and
+previous evidence. It selects a feasible route $r_t$ or a terminal action. We optimize
+\[
+U = q_{\mathrm{supported}} + 0.35 q_{\mathrm{action}}
+    - 0.15 c - 0.08\log(1 + \ell/100) - 0.45 q_{\mathrm{contradiction}},
+\]
+subject to a target upper bound on unsupported-or-incorrect answer risk. The coefficients are
+configurable normative weights, not learned facts.
+
+\section{System}
+Routes share availability, estimate, probe, acquire, health, and close operations. Acquired
+content is normalized into evidence records with source URI, snapshot, retrieval score,
+timestamp, privacy class, integrity hash, and relation path. Verified answers require citations.
+Clarification and abstention are first-class outcomes.
+
+\section{Experimental protocol}
+MiniRoute contains synthetic direct, lexical, semantic, structured, temporal, memory,
+contradiction, ambiguity, privacy, injection, outage, and shift cases. Forced-route runs produce
+potential outcomes and an oracle. The learned router predicts route utility from decision-time
+features. Public evaluation is pre-specified for HotpotQA \cite{yang2018hotpotqa}, MuSiQue
+\cite{trivedi2022musique}, and 2WikiMultiHopQA \cite{ho2020wiki}; those runs are not reported in
+this release.
+
+\section{Risk and shift}
+The controller selects a score threshold whose one-sided Wilson upper bound is below the target.
+This is an auditable prototype consistent with risk-controlling prediction principles
+\cite{bates2021distribution}. Detected source-score or error-rate shift invalidates the
+exchangeability status and triggers abstention or recalibration.
+
+\section{Current evidence}
+The executed MiniRoute smoke run validates software integration and artifact generation only.
+It does not establish superiority, broad generalization, or production safety. Public benchmark
+tables are intentionally omitted until reproducible runs exist.
+
+\section{Limitations}
+The synthetic benchmark is small and English-only. Dense retrieval is a deterministic CPU
+fixture, the parametric route is a mock, and live web is disabled. Utility weights embed design
+preferences. Prompt-injection detection is incomplete. Calibration guarantees do not survive
+arbitrary distribution shift.
+
+\section{Ethics}
+The system exposes provenance, privacy denials, conflicts, and abstentions, but users must still
+validate sources and protect data. Private $\tau$-Knowledge materials are never redistributed.
+No institutional affiliation or state-of-the-art claim is asserted.
+
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}
