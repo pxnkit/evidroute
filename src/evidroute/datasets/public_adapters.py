@@ -78,7 +78,7 @@ class TauKnowledgeLocalAdapter:
     def validate_archive(self, archive_path: Path) -> dict[str, Any]:
         if not archive_path.exists():
             raise FileNotFoundError(
-                "τ-Knowledge is local-only. Set TAU_KNOWLEDGE_ARCHIVE to the supplied private ZIP."
+                "τ-Knowledge is local-only. Set TAU_KNOWLEDGE_ARCHIVE to a user-provided private ZIP."
             )
         if archive_path.suffix.lower() != ".zip":
             raise ValueError("τ-Knowledge input must be a ZIP archive")
