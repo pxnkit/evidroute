@@ -14,8 +14,8 @@ from evidroute.shifts import ShiftSuite
 
 
 def test_answer_metrics_normalize_and_score_partial_overlap() -> None:
-    assert exact_match("The Zurich.", "zurich") == 0.0
-    assert exact_match("Zurich!", "zurich") == 1.0
+    assert exact_match("The Dresden.", "dresden") == 0.0
+    assert exact_match("Dresden!", "dresden") == 1.0
     assert token_f1("18 researchers", "18 researchers in Tycho crater") == pytest.approx(4 / 7)
     assert token_f1(None, None) == 1.0
 
@@ -37,7 +37,7 @@ def test_aggregate_outcomes_reports_quality_cost_and_abstention() -> None:
             "utility": 0.9,
             "monetary_cost": 0.01,
             "latency_ms": 10,
-            "answer": "Zurich",
+            "answer": "Dresden",
         },
         {
             "exact_match": 0.0,

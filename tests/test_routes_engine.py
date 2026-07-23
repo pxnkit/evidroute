@@ -54,14 +54,17 @@ def test_engine_answers_temporal_snapshot_with_exact_citation(
 ) -> None:
     response = engine.query(
         QueryRequest(
-            query="According to the latest snapshot, where will Aurora launch?",
+            query=(
+                "According to the latest snapshot, which Dresden venue will host "
+                "the fictional Elbe AI Systems Workshop?"
+            ),
             risk_target=0.3,
         )
     )
 
     assert response.decision.action is TerminalAction.ANSWER
-    assert response.decision.answer == "Zurich"
-    assert response.decision.citations == ["frozen_web:web_port_t1"]
+    assert response.decision.answer == "TU Dresden"
+    assert response.decision.citations == ["frozen_web:elbe_workshop_t1"]
     assert response.decision.risk_upper_bound <= 0.3
     assert any(
         candidate.route is RouteName.FROZEN_WEB and candidate.selected
@@ -73,14 +76,17 @@ def test_engine_answers_temporal_snapshot_with_exact_citation(
 def test_engine_respects_historical_snapshot(engine: EvidRouteEngine) -> None:
     response = engine.query(
         QueryRequest(
-            query="Where was Aurora scheduled to launch in the 2025 snapshot?",
+            query=(
+                "According to the initial snapshot, which Dresden venue was planned "
+                "for the fictional Elbe AI Systems Workshop?"
+            ),
             snapshot_id="t0",
             risk_target=0.35,
         )
     )
 
     assert response.decision.action is TerminalAction.ANSWER
-    assert response.decision.answer == "Oslo"
+    assert response.decision.answer == "Dresden City Lab"
     assert all(item.snapshot_id == "t0" for item in response.evidence)
 
 
@@ -143,7 +149,7 @@ def test_counterfactual_runner_and_router_are_reproducible(tmp_path: Path) -> No
     router.save(path)
     loaded = PotentialOutcomeRouter.load(path)
     predictions = loaded.predict(
-        query="Where will Aurora launch?",
+        query="Which Dresden venue will host the fictional Elbe AI Systems Workshop?",
         task_family="temporal_update",
         snapshot_id="t1",
         feasible_routes=[RouteName.BM25, RouteName.FROZEN_WEB],

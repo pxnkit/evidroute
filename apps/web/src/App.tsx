@@ -13,7 +13,7 @@ const ROUTE_LABELS: Record<RouteName, string> = {
 };
 
 const EXAMPLES = [
-  "According to the latest snapshot, where will Aurora launch?",
+  "According to the latest snapshot, which Dresden venue will host the fictional Elbe AI Systems Workshop?",
   "Who directs the institute that founded Project Atlas?",
   "What does the green station signal mean for ongoing flight work?",
   "What is the user's current default briefing city?",

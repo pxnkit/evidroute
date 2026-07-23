@@ -8,10 +8,10 @@
 | Metric | Value |
 | --- | ---: |
 | Cases | 14 |
-| Exact match | 0.286 |
-| Token F1 | 0.300 |
-| Supported accuracy | 0.286 |
-| Mean utility | 0.444 |
+| Exact match | 0.357 |
+| Token F1 | 0.371 |
+| Supported accuracy | 0.357 |
+| Mean utility | 0.515 |
 | Mean route cost | 0.0136 |
 | Median route latency | 18 ms |
 
@@ -19,11 +19,11 @@
 
 | Metric | Learned policy | Oracle |
 | --- | ---: | ---: |
-| Supported accuracy | 0.286 | 0.429 |
-| Mean utility | 0.444 | 0.609 |
+| Supported accuracy | 0.357 | 0.429 |
+| Mean utility | 0.515 | 0.678 |
 
-Mean atomic route regret was 0.318, with a 95% seeded bootstrap interval of
-[0.144, 0.516] over 23 cases with a feasible oracle and selected route.
+Mean atomic route regret was 0.274, with a 95% seeded bootstrap interval of
+[0.128, 0.445] over 23 cases with a feasible oracle and selected route.
 
 ## Selective risk
 
