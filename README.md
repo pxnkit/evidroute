@@ -94,15 +94,15 @@ docker compose up --build
 Reference query:
 
 ```text
-According to the latest snapshot, where will Aurora launch?
+According to the latest snapshot, which Dresden venue will host the fictional Elbe AI Systems Workshop?
 ```
 
 Expected deterministic result:
 
 ```text
 Selected route: FROZEN_WEB
-Answer: Zurich
-Citation: frozen_web:web_port_t1
+Answer: TU Dresden
+Citation: frozen_web:elbe_workshop_t1
 ```
 
 The example uses fictional MiniRoute data and does not represent a real-world factual claim.

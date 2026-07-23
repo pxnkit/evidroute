@@ -26,7 +26,7 @@ class ShiftSuite:
     def built_in() -> list[CorruptionManifest]:
         specifications = [
             ("omit-relevant-dense", "t1", "document_omission", 0.5, ["doc_dense"]),
-            ("stale-aurora", "t1", "staleness", 0.7, ["web_port_t1"]),
+            ("stale-elbe-workshop", "t1", "staleness", 0.7, ["elbe_workshop_t1"]),
             ("kepler-conflict", "t1", "contradiction_injection", 0.6, ["doc_contradict_b"]),
             ("dense-noise", "t1", "retriever_degradation", 0.45, ["dense-hash-v1"]),
             ("frozen-outage", "t1", "source_outage", 1.0, ["FROZEN_WEB"]),

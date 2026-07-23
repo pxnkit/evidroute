@@ -34,14 +34,17 @@ def test_query_trace_export_and_feedback_round_trip(api_client: TestClient) -> N
     response = api_client.post(
         "/v1/query",
         json={
-            "query": "According to the latest snapshot, where will Aurora launch?",
+            "query": (
+                "According to the latest snapshot, which Dresden venue will host "
+                "the fictional Elbe AI Systems Workshop?"
+            ),
             "risk_target": 0.3,
         },
     )
     assert response.status_code == 200
     payload = response.json()
     trace_id = payload["trace_id"]
-    assert payload["decision"]["answer"] == "Zurich"
+    assert payload["decision"]["answer"] == "TU Dresden"
 
     trace = api_client.get(f"/v1/traces/{trace_id}")
     exported = api_client.get(f"/v1/traces/{trace_id}/export")
