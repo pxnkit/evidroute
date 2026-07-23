@@ -16,6 +16,11 @@ and source-shift simulation on the bundled MiniRoute benchmark.
 > Research status: engineering prototype and reproducibility scaffold. No state-of-the-art
 > claim is made. Public benchmark experiments have not yet been run.
 
+> Research provenance: EvidRoute is an original implementation inspired by research directions
+> in ACL 2025, EMNLP 2025, NeurIPS 2025, and ICML 2026 manuscripts. It is not an official
+> reproduction of those works, and it does not reuse their source code, private data, or
+> reported experimental results.
+
 ## What is implemented
 
 - Typed route contracts for parametric, memory, BM25, dense, structured, frozen-web, and
@@ -101,5 +106,6 @@ experiments in `configs/paper/` and are intentionally marked unrun.
 
 ## Citation
 
-See [`CITATION.cff`](CITATION.cff). Related-work entries were verified against the supplied
-ACL 2025, EMNLP 2025, NeurIPS 2025, and ICML 2026 manuscripts.
+See [`CITATION.cff`](CITATION.cff). The research directions that inspired EvidRoute and the
+corresponding ACL 2025, EMNLP 2025, NeurIPS 2025, and ICML 2026 manuscripts are documented in
+[`docs/related-work.md`](docs/related-work.md).
